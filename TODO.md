@@ -1,0 +1,5 @@
+- ✅ Generate a QR Code
+- ✅ Scan a QR Code
+- ✅ Setup MongoDB and initialize the database
+- Auth0 oder Clerk?
+- Build Pipelines, Automatisierung

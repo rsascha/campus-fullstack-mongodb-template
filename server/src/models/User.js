@@ -7,6 +7,6 @@ const userSchema = new Schema({
   age: Number,
 });
 
-const User = model("User", userSchema);
+export const User = model("User", userSchema);
 
 export default User;

@@ -1,5 +1,14 @@
 import mongoose from "mongoose";
+import { config } from "../config.js";
 
-const db = mongoose.connect("mongodb://127.0.0.1/note-taking-app");
+async function connect() {
+  if (mongoose.connection.readyState === 1) {
+    return;
+  }
+  const connectionString = config.MONGO_DB_URL;
+  await mongoose.connect(connectionString);
+}
+
+export const db = { connect };
 
 export default db;

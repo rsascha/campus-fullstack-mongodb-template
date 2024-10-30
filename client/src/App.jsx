@@ -1,14 +1,17 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import { QrReader } from "@cmdnio/react-qr-reader";
-import QRCode from "react-qr-code";
+// import { QrReader } from "@cmdnio/react-qr-reader";
+// import QRCode from "react-qr-code";
+import { config } from "./config";
 
 function App() {
   const [users, setUsers] = useState([]);
-  const [data, setData] = useState("No result");
+  // const [data, setData] = useState("No result");
 
   async function fetchUsers() {
-    const response = await fetch("http://localhost:3000/users");
+    const url = new URL("/users", config.API_URL);
+    console.debug("fetching users from", url);
+    const response = await fetch(url);
     if (!response.ok) {
       console.warn("Response is not OK!");
     }
@@ -40,7 +43,7 @@ function App() {
   return (
     <div>
       <div>
-        <QRCode
+        {/* <QRCode
           size={256}
           style={{
             height: "auto",
@@ -66,7 +69,7 @@ function App() {
             facingMode: "environment",
           }}
         />
-        <pre>{data}</pre>
+        <pre>{data}</pre> */}
       </div>
       <div style={{ marginBottom: "15rem" }}>
         {users.map(({ _id, name, age }) => (
